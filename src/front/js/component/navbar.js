@@ -9,6 +9,15 @@ export const Navbar = () => {
     <div id="whole-wheat" className="px-5">
       <nav className="navbar navbar-expand-lg bg-body-tertiary d-flex justify-content-between">
         <div className="d-flex justify-content-between w-100">
+          {/* <a class="navbar-brand" href="#">
+            <img
+              src="/fulllogo_transparent_nobuffer.png"
+              alt="Logo"
+              width="32px"
+              height="32px"
+              class="d-inline-block align-text-top"
+            />
+          </a> */}
           <Link className="navbar-brand" to={store.user ? "/profile" : "/"}>
             NourishNav
           </Link>
@@ -23,7 +32,8 @@ export const Navbar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <form className="form-inline my-2 my-lg-0">
+
+          <form className="form-inline d-flex align-items-center my-2 my-lg-0">
             <input
               className="form-control mr-sm-2"
               type="search"
@@ -37,6 +47,7 @@ export const Navbar = () => {
               Search
             </button>
           </form>
+
           <div
             className="collapse navbar-collapse flex-grow-0"
             id="navbarSupportedContent"
@@ -44,7 +55,7 @@ export const Navbar = () => {
             <ul className="navbar-nav mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link className="nav-link" to="/features">
-                  Features
+                  Highlights
                 </Link>
               </li>
               <li className="nav-item">

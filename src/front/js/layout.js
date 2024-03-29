@@ -27,12 +27,13 @@ const Layout = () => {
           <Navbar />
           <Routes>
             <Route element={<Home />} path="/" />
-            <Route element={<Login />} path="/login" />
+            {/* <Route element={<Login />} path="/login" />
             <Route element={<Signup />} path="/signup" />
             <Route element={<Account />} path="/account" />
             <Route element={<About />} path="/about" />
             <Route element={<Menu />} path="/menu" />
-            <Route element={<ShoppingList />} path="/shoppinglist" />
+            <Route element={<ShoppingList />} path="/shoppinglist" /> */}
+            <Route element={<Demo />} path="/demo" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>
           <Footer />
