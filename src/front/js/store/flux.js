@@ -14,7 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
       ],
       favorites: [],
-      // added 18 for recipeNutrition
+      // added 18 for recipeNutrition.js
       items: [],
     },
     actions: {
