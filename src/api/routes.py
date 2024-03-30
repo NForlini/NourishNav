@@ -5,6 +5,8 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
+from flask_jwt_extended import JWTManager, jwt_required, get_jwt_identity
+
 
 api = Blueprint('api', __name__)
 
@@ -21,7 +23,7 @@ def handle_hello():
 
     return jsonify(response_body), 200
 
-@api.route('/user, methods=['PUT'])
+@api.route('/user', methods=['PUT'])
 @jwt_required()
 def recover_password():
     request_body = request.get_json()

@@ -36,6 +36,7 @@ export default function Metrics() {
       );
       setDailyProgress(updatedProgress);
     } else {
+      // ADD MODAL
       alert("You've reached your goal for today!");
     }
   }

@@ -39,6 +39,8 @@ export const Navbar = () => {
               type="search"
               placeholder="Search"
               aria-label="Search"
+              // value={searchQuery}
+              // onChange={(e) => setSearchQuery(e.target.value)}
             />
             <button
               className="btn btn-outline-success my-2 my-sm-0"

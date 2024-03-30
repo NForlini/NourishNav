@@ -10,6 +10,8 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import recipeCard from "./component/recipes/recipeCard";
+import { recipeNutrition } from "./component/recipes/recipeNutrition";
 
 //create your first component
 const Layout = () => {

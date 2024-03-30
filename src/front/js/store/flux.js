@@ -14,6 +14,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
       ],
       favorites: [],
+      // added 18 for recipeNutrition
+      items: [],
     },
     actions: {
       addFavorites: (fav) => {
@@ -30,8 +32,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       loadSomeData: () => {
         /**
-                    fetch().then().then(data => setStore({ "foo": data.bar }))
-                */
+              fetch().then().then(data => setStore({ "foo": data.bar }))
+          */
       },
       changeColor: (index, color) => {
         //get the store
