@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { Context } from "../store/appContext";
+import { Context } from "../../store/appContext";
 
-export const recipeNutrition = () => {
+export const RecipeNutrition = () => {
   const { store, actions } = useContext(Context);
   const [query, setQuery] = useState();
   const [nutrition, setNutrition] = useState();
@@ -31,19 +31,18 @@ export const recipeNutrition = () => {
       </button>
       {nutrition ? (
         <div>
-          <li>{nutrition.name}</li>
-          <li>{nutrition.calories}</li>
-          <li>{nutrition.serving_size_g}</li>
-          <li>{nutrition.fat_total_g}</li>
-          <li>{nutrition.sugar_g}</li>
-          <li>{nutrition.fiber_g}</li>
-          <li>{nutrition.protein_g}</li>
-          <li>{nutrition.cholesterol_mg}</li>
-          <li>{nutrition.calories}</li>
-          <li>{nutrition.carbohydrates_total_g}</li>
-          <li>{nutrition.fat_saturated_g}</li>
-          <li>{nutrition.potassium_mg}</li>
-          <li>{nutrition.sodium_mg}</li>
+          <li>Name: {nutrition.name} </li>
+          <li>Calories: {nutrition.calories}</li>
+          <li>Serving Size: {nutrition.serving_size_g}g</li>
+          <li>Fats: {nutrition.fat_total_g}g</li>
+          <li>Sugar: {nutrition.sugar_g}g</li>
+          <li>Fiber: {nutrition.fiber_g}g</li>
+          <li>Protein: {nutrition.protein_g}g</li>
+          <li>Cholestrol: {nutrition.cholesterol_mg}mg</li>
+          <li>Carbs: {nutrition.carbohydrates_total_g}g</li>
+          <li>Saturated Fats: {nutrition.fat_saturated_g}g</li>
+          <li>Potassium: {nutrition.potassium_mg}mg</li>
+          <li>Sodium: {nutrition.sodium_mg}mg</li>
         </div>
       ) : (
         ""

@@ -23,19 +23,19 @@ def handle_hello():
 
     return jsonify(response_body), 200
 
-@api.route('/user', methods=['PUT'])
-@jwt_required()
-def recover_password():
-    request_body = request.get_json()
-    id = get_jwt_identity()
-    user = User.query.filter_by(id=id).first()
-    email = request_body.get('email')
-    weight = request_body.get('weight')
-    activity_level = request_body.get('activity_level')
+# @api.route('/user', methods=['PUT'])
+# @jwt_required()
+# def recover_password():
+#     request_body = request.get_json()
+#     id = get_jwt_identity()
+#     user = User.query.filter_by(id=id).first()
+#     email = request_body.get('email')
+#     weight = request_body.get('weight')
+#     activity_level = request_body.get('activity_level')
     
-    if user is not None:
-        user.email = email
-        user.weight = weight
-        user.activity_level = activity_level
-        db.session.commit()
-        return jsonify(user.serialize()), 201
+#     if user is not None:
+#         user.email = email
+#         user.weight = weight
+#         user.activity_level = activity_level
+#         db.session.commit()
+#         return jsonify(user.serialize()), 201
