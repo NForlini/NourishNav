@@ -8,7 +8,7 @@ export default function RecipeDetail() {
 
   async function getRecipe() {
     let response = await fetch(
-      "https://www.themealdb.com/api/json/v1/9973533/lookup.php?i=" + id
+      "https://www.themealdb.com/api/json/v2/9973533/lookup.php?i=" + id
     );
     let data = await response.json();
     setRecipe(data.meals[0]);
@@ -17,5 +17,15 @@ export default function RecipeDetail() {
     getRecipe();
   }, []);
   console.log(recipe);
-  return <div>{recipe.strMeal}</div>;
+  return (
+    <div>
+      <img src={recipe.strMealThumb} />
+      <div>{recipe.strMeal}</div>
+      <div>{recipe.strCategory}</div>
+      <div>{recipe.strArea}</div>
+      <div>{recipe.strInstructions}</div>
+      <div>{recipe.strTags}</div>
+      <div>{recipe.strYoutube}</div>
+    </div>
+  );
 }

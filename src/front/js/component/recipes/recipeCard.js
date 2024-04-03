@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../store/appContext";
 
-export default function RecipeCard() {
+export default function RecipeCard(props) {
   const [recipe, setRecipe] = useState([]);
   const { store, actions } = useContext(Context);
 
@@ -46,7 +46,8 @@ export default function RecipeCard() {
   // but use this one with the recipe api
   async function getRecieps() {
     let response = await fetch(
-      "https://www.themealdb.com/api/json/v1/9973533/search.php?f=a"
+      "https://www.themealdb.com/api/json/v2/9973533/filter.php?c=" +
+        props.category
     );
     let data = await response.json();
     setRecipe(data.meals);

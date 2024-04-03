@@ -9,18 +9,20 @@ export const Navbar = () => {
     <div id="whole-wheat" className="px-5">
       <nav className="navbar navbar-expand-lg bg-body-tertiary d-flex justify-content-between">
         <div className="d-flex justify-content-between w-100">
-          {/* <a class="navbar-brand" href="#">
-            <img
-              src="/fulllogo_transparent_nobuffer.png"
-              alt="Logo"
-              width="32px"
-              height="32px"
-              class="d-inline-block align-text-top"
-            />
-          </a> */}
-          <Link className="navbar-brand" to={store.user ? "/profile" : "/"}>
-            NourishNav
-          </Link>
+          <div>
+            <a className="navbar-brand" href="#">
+              <img
+                src="https://i.imgur.com/nubofpV.png"
+                alt="Logo"
+                width="32px"
+                height="32px"
+                className="d-inline-block align-text-top"
+              />
+            </a>
+            <Link className="navbar-brand" to={store.user ? "/profile" : "/"}>
+              NourishNav
+            </Link>
+          </div>
           <button
             className="navbar-toggler"
             type="button"
@@ -66,7 +68,7 @@ export const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="/categories">
                   Recipes
                 </Link>
               </li>

@@ -6,6 +6,8 @@ import { BackendURL } from "./component/backendURL";
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
+import RecipeCategories from "./component/recipes/recipeCategories";
+import Recipes from "./component/recipes/recipe";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -34,6 +36,8 @@ const Layout = () => {
           <Routes>
             <Route element={<Home />} path="/" />
             <Route element={<Highlights />} path="/highlights" />
+            <Route element={<RecipeCategories />} path="/categories" />
+            <Route element={<Recipes />} path="/recipes/:category" />
             {/* <Route element={<Login />} path="/login" />
             <Route element={<Signup />} path="/signup" />
             <Route element={<Account />} path="/account" />

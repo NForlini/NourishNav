@@ -79,7 +79,7 @@ export const Footer = () => {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/Recipe">
+                  <Link className="nav-link" to="/categories">
                     Recipes
                   </Link>
                 </li>

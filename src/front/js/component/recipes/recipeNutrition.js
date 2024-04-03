@@ -51,25 +51,4 @@ export const RecipeNutrition = () => {
   );
 };
 
-//  ??? this here?
-// var query = "3lb carrots and a chicken sandwich";
-
-// fetch("https://api.calorieninjas.com/v1/nutrition?query=" + query, {
-//   method: "GET",
-//   headers: {
-//     "X-Api-Key": "a6SJ0mhQQeAcTQWuf6iKvQ==eL9qCOhw9zSvjNxM",
-//     "Content-Type": "application/json",
-//   },
-// })
-//   .then((response) => {
-//     if (!response.ok) {
-//       throw new Error("Network response was not ok");
-//     }
-//     return response.json();
-//   })
-//   .then((result) => {
-//     console.log(result);
-//   })
-//   .catch((error) => {
-//     console.error("Error: ", error);
-//   });
+//make modal instead of input in navbar, then pass in recipeNutrition
