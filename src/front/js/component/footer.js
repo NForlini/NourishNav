@@ -121,6 +121,11 @@ export const Footer = () => {
                         Log-in
                       </Link>
                     </li>
+                    <li>
+                      <Link className="dropdown-item" to="/signup">
+                        Sign-up
+                      </Link>
+                    </li>
                   </ul>
                 </li>
               </ul>

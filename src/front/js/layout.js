@@ -6,13 +6,17 @@ import { BackendURL } from "./component/backendURL";
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
-import RecipeCategories from "./component/recipes/recipeCategories";
-import Recipes from "./component/recipes/recipe";
+
+import Account from "./pages/private";
+import { Login } from "./pages/login";
+import Signup from "./pages/signup";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
+import RecipeCategories from "./component/recipes/recipeCategories";
+import Recipes from "./component/recipes/recipe";
 import recipeCard from "./component/recipes/recipeCard";
 import { recipeNutrition } from "./component/recipes/recipeNutrition";
 import RecipeDetail from "./component/recipes/recipeDetail";
@@ -38,10 +42,10 @@ const Layout = () => {
             <Route element={<Highlights />} path="/highlights" />
             <Route element={<RecipeCategories />} path="/categories" />
             <Route element={<Recipes />} path="/recipes/:category" />
-            {/* <Route element={<Login />} path="/login" />
+            <Route element={<Login />} path="/login" />
             <Route element={<Signup />} path="/signup" />
             <Route element={<Account />} path="/account" />
-            <Route element={<About />} path="/about" />
+            {/* <Route element={<About />} path="/about" />
             <Route element={<Menu />} path="/menu" />
             <Route element={<ShoppingList />} path="/shoppinglist" /> */}
             <Route element={<Demo />} path="/demo" />

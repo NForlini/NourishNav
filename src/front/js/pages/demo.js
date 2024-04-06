@@ -9,10 +9,5 @@ import { RecipeNutrition } from "../component/recipes/recipeNutrition";
 export const Demo = () => {
   const { store, actions } = useContext(Context);
 
-  return (
-    <div className="container">
-      <RecipeCard />
-      <RecipeNutrition />
-    </div>
-  );
+  return <RecipeNutrition />;
 };

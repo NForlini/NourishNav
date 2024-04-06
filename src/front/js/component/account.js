@@ -8,6 +8,7 @@ export default function Account() {
   const [activity_level, setActivity_level] = useState();
 
   useEffect(() => {
+    console.log(token);
     async function getUser() {
       const token = sessionStorage.getItem("token");
       const opts = {
