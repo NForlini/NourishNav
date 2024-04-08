@@ -30,7 +30,7 @@ def handle_signup():
     user = User.query.filter_by(email = email).first()
     if user:
         return jsonify({"msg": "User account already exists"})
-    newUser = User(email = email, password = password, is_active = is_active)
+    newUser = User(email = email, password = password, activity_level = "", weight = "")
     db.session.add(newUser)
     db.session.commit()
     return jsonify("Added User"), 200
@@ -73,3 +73,14 @@ def recover_password():
         user.password = password
         db.session.commit()
         return jsonify(user.serialize()), 201
+
+@api.route('/user', methods=['GET'])
+@jwt_required()
+def get_user():
+    id = get_jwt_identity()
+    user = User.query.filter_by(id=id).first()
+
+    if user is not None:
+        return jsonify(user.serialize()), 200
+
+    return jsonify({"message": "Uh-oh"}), 400

@@ -81,10 +81,10 @@ export default function Metrics() {
 //   }
 
 //   return (
-//     <div class="bottle" onClick={() => handleBottle()}>
-//       <div class={top ? "top active" : "top"}></div>
-//       <div class={middle ? "middle active" : "middle"}></div>
-//       <div class={bottom ? "bottom active" : "bottom"}></div>
+//     <div className="bottle" onClick={() => handleBottle()}>
+//       <div className={top ? "top active" : "top"}></div>
+//       <div className={middle ? "middle active" : "middle"}></div>
+//       <div className={bottom ? "bottom active" : "bottom"}></div>
 //     </div>
 //   );
 // }

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
@@ -7,13 +7,7 @@ import { RecipeNutrition } from "./recipes/recipeNutrition";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [showModal, setShowModal] = useState(false);
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    setShowModal(true);
-  };
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
     await actions.logout();
@@ -50,37 +44,17 @@ export const Navbar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="justify-content-between d-flex">
-            <form
-              className="form-inline d-flex align-items-center my-2 my-lg-0"
-              onSubmit={handleSearch}
-            >
-              <input
-                className="form-control mr-sm-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-              <button
-                className="btn btn-outline-success my-2 my-sm-0"
-                type="submit"
-              >
-                Search
-              </button>
-            </form>
-          </div>
-          <div class="dropdown">
+          <RecipeNutrition />
+          <div className="dropdown">
             <button
-              class="btn btn-secondary dropdown-toggle"
+              className="btn btn-secondary dropdown-toggle"
               type="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
               Account
             </button>
-            <ul class="dropdown-menu">
+            <ul className="dropdown-menu">
               <li>
                 <Link className="dropdown-item" to="/favorites">
                   Favorites
@@ -117,7 +91,6 @@ export const Navbar = () => {
               )}
             </ul>
           </div>
-          ;
         </div>
       </nav>
     </div>

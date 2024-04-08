@@ -1,26 +1,25 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const { store, actions } = useContext(Context);
-  const [formValue, setFormValue] = useState({ email: "", password: "" });
+  const [userInfo, setUserInfo] = useState({ email: "", password: "" });
   const navigate = useNavigate();
 
-  function onChange(e) {
-    const id = e.target.id;
-    const value = e.target.value;
-    setFormValue({ ...formValue, [id]: value });
-  }
-
-  const handleLogin = async () => {
-    try {
-      await actions.login(formValue);
-      navigate("/account");
-    } catch (error) {
-      console.error(error);
-    }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserInfo((prevUserInfo) => ({
+      ...prevUserInfo,
+      [name]: value,
+    }));
   };
+
+  async function handleLogin(e) {
+    e.preventDefault();
+    await actions.login(userInfo);
+    navigate("/account");
+  }
 
   return (
     <div className="container mt-5">
@@ -33,12 +32,12 @@ export const Login = () => {
             Email
           </label>
           <input
-            onChange={onChange}
-            value={formValue.email}
-            type="email"
-            className="form-control"
-            placeholder="Enter email"
-            id="email"
+            type="text"
+            id="inputPassword6"
+            className="mt-0 form-control"
+            name="email"
+            value={userInfo.email}
+            onChange={handleChange}
           />
         </div>
         <div className="col-md-12">
@@ -46,17 +45,29 @@ export const Login = () => {
             Password
           </label>
           <input
-            onChange={onChange}
-            value={formValue.password}
             type="password"
-            className="form-control"
-            placeholder="Enter password"
-            id="password"
+            id="inputPassword6"
+            className="mt-0 form-control"
+            name="password"
+            value={userInfo.password}
+            onChange={handleChange}
           />
         </div>
-        <button type="button" onClick={handleLogin} className="btn btn-primary">
+        <button
+          type="button"
+          onClick={(e) => handleLogin(e)}
+          className="btn btn-primary"
+        >
           Login
         </button>
+        {/* <button
+          type="button"
+          onClick={handleResetPassword}
+          className="btn btn-alert"
+        >
+          {" "}
+          Forgot Password
+        </button> */}
       </form>
     </div>
   );

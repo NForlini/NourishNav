@@ -16,7 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       favorites: [],
       items: [],
       message: null,
-      token: null,
+      token: sessionStorage.getItem("token"),
       user: null,
     },
     actions: {
@@ -96,7 +96,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             }
             const data = await resp.json();
             sessionStorage.setItem("token", data.token);
-            setStore({ token: data.token });
           })
           .catch((error) => {
             console.log(error);
@@ -146,6 +145,49 @@ const getState = ({ getStore, getActions, setStore }) => {
           return elm;
         });
         setStore({ demo: demo });
+      },
+      getUser: async () => {
+        const token = sessionStorage.getItem("token");
+        const opts = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+        };
+        const res = await fetch(process.env.BACKEND_URL + "/api/user", opts);
+        if (res.status < 200 || res.status >= 300) {
+          throw new Error("There was an error signing in");
+        }
+        const data = await res.json();
+        console.log(data);
+        setStore({ user: data });
+        return true;
+      },
+      updateUser: async (email, weight, activity_level, password) => {
+        const token = sessionStorage.getItem("token");
+        const store = getStore();
+        const url =
+          "https://ideal-journey-jv4qq4q4jpgcqvgr-3001.app.github.dev/api/user";
+        fetch(url, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+          body: JSON.stringify({
+            email: email,
+            weight: weight,
+            activity_level: activity_level,
+            password: password,
+          }),
+        })
+          .then(async (resp) => {
+            console.log(resp.json());
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       },
     }, // This closing brace was missing
   };

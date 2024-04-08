@@ -6,42 +6,15 @@ import { useState } from "react";
 const Account = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
-  const [email, setEmail] = useState();
-  const [weight, setWeight] = useState();
-  const [password, setPassword] = useState();
-  const [activity_level, setActivity_level] = useState();
+  const [user, setUser] = useState("");
+  const [email, setEmail] = useState("");
+  const [weight, setWeight] = useState("");
+  const [password, setPassword] = useState("");
+  const [activity_level, setActivity_level] = useState("");
 
-  //   useEffect(() => {
-  //     const auth = async () => {
-  //       await actions.authenticateUser();
-  //     };
-  //     auth();
-  //     // setTimeout(() => {
-  //     //   auth();
-  //     // }, 500);
-  //   }, []); // This closing brace was missing for the useEffect hook
-
-  const getUser = async () => {
-    console.log(token);
-    const token = sessionStorage.getItem("token");
-    const opts = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + token,
-      },
-    };
-    const res = await fetch(process.env.BACKEND_URL + "/api/user", opts);
-    if (res.status < 200 || res.status >= 300) {
-      throw new Error("There was an error signing in");
-    }
-    const data = await res.json();
-    setEmail(data.email);
-    setWeight(data.weight);
-    setActivity_level(data.activity_level);
-  };
-
-  getUser();
+  useEffect(() => {
+    actions.getUser();
+  }, []);
 
   return (
     <div className="container text-center">
@@ -53,49 +26,49 @@ const Account = () => {
       ) : (
         navigate("/login")
       )}
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">
+      <div className="mb-3">
+        <label htmlFor="exampleFormControlInput1" className="form-label">
           Email address
         </label>
         <input
           id="email"
           type="email"
-          class="form-control"
+          className="form-control"
           placeholder="Update Email"
           onChange={(e) => setEmail(e.target.value)}
           value={email}
         />
       </div>
-      <label for="inputPassword5" class="form-label">
+      <label htmlFor="inputPassword5" className="form-label">
         Password
       </label>
       <input
         type="password"
         id="inputPassword5"
-        class="form-control"
+        className="form-control"
         aria-describedby="passwordHelpBlock"
         onChange={(e) => setPassword(e.target.value)}
-        value={setPassword}
+        value={password}
       />
-      <div id="passwordHelpBlock" class="form-text">
+      <div id="passwordHelpBlock" className="form-text">
         Your password must be 8-20 characters long, contain letters and numbers,
         and must not contain spaces, special characters, or emoji.
       </div>
       <select
         id="activity"
-        class="form-select form-select-sm"
+        className="form-select form-select-sm"
         aria-label="Small select example"
         onChange={(e) => setActivity_level(e.target.value)}
-        value={setActivity_level}
+        value={activity_level}
       >
-        <option selected>Acitvity Level</option>
+        <option value="">Activity Level</option>
         <option value="1">Active</option>
         <option value="2">Less Active</option>
         <option value="3">I am a potato but I'm a cute potato</option>
       </select>
-      <div class="input-group">
-        <input type="text" class="form-control" aria-label="weight" />
-        <span class="input-group-text">Lbs</span>
+      <div className="input-group">
+        <input type="text" className="form-control" aria-label="weight" />
+        <span className="input-group-text">Lbs</span>
       </div>
       <button
         type="button"
