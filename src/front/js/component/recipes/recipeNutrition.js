@@ -49,7 +49,7 @@ export const RecipeNutrition = () => {
           id="accordionFlushExample"
         >
           <div className="accordion-item">
-            <h2 className="accordion-header">
+            <h2 className="accordion-header d-flex">
               <button
                 className="accordion-button collapsed"
                 type="button"
@@ -65,6 +65,7 @@ export const RecipeNutrition = () => {
                 className="btn-close"
                 aria-label="Close"
                 onClick={handleClose}
+                style={{ height: "1px", marginTop: "17.5px" }}
               ></button>
             </h2>
             <div

@@ -20,12 +20,12 @@ export const Navbar = () => {
       <nav className="navbar navbar-expand-lg bg-body-tertiary d-flex justify-content-between">
         <div className="d-flex justify-content-between w-100">
           <div>
-            <a className="navbar-brand" href="/home">
+            <a className="navbar-brand" to={store.user ? "/profile" : "/"}>
               <img
                 src="https://i.imgur.com/nubofpV.png"
                 alt="Logo"
-                width="32px"
-                height="32px"
+                width="40px"
+                height="40px"
                 className="d-inline-block align-text-top"
               />
             </a>
@@ -45,6 +45,29 @@ export const Navbar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <RecipeNutrition />
+
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <Link className="nav-link" to="/features">
+                Highlights
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/about">
+                About
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/categories">
+                Recipes
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/menu">
+                Menu
+              </Link>
+            </li>
+          </ul>
           <div className="dropdown">
             <button
               className="btn btn-secondary dropdown-toggle"

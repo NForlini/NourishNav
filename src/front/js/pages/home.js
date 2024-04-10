@@ -9,21 +9,39 @@ export const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="text-center mt-5">
-      <h1>Hello Rigo!!</h1>
-      <p>
-        <img src={rigoImageUrl} />
-      </p>
-      <div className="alert alert-info">
-        {store.message ||
-          "Loading message from the backend (make sure your python backend is running)..."}
+    <div className="whole-wheat">
+      <div className="first">
+        <div className="recipe">
+          <h3>Recipe of The Day</h3>
+          <p>Stinky Fish and Dirty Socks Souffle</p>
+          <div className="buttons">
+            <button>Recipes</button>
+            <button>Favorites</button>
+          </div>
+        </div>
+        <div className="image"></div>
       </div>
-      <p>
-        This boilerplate comes with lots of documentation:{" "}
-        <a href="https://start.4geeksacademy.com/starters/react-flask">
-          Read documentation
-        </a>
-      </p>
+      <div className="second">
+        <div className="option">
+          <img />
+          <h6>Vegetarian Options</h6>
+          <button>Show More</button>
+        </div>
+        <div className="option">
+          <img />
+          <h6>Vegan Options</h6>
+          <button>Show More</button>
+        </div>
+        <div className="option">
+          <img />
+          <h6>Dairy Free Options</h6>
+          <button>Show More</button>
+        </div>
+      </div>
+      <div className="third">
+        <img />
+        <p></p>
+      </div>
     </div>
   );
 };

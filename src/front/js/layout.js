@@ -11,6 +11,8 @@ import Account from "./pages/private";
 import { Login } from "./pages/login";
 import Signup from "./pages/signup";
 import injectContext from "./store/appContext";
+import About from "./pages/about";
+import Menu from "./pages/calendar";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -39,15 +41,15 @@ const Layout = () => {
           <Navbar />
           <Routes>
             <Route element={<Home />} path="/" />
-            <Route element={<Highlights />} path="/highlights" />
+            <Route element={<Highlights />} path="/features" />
             <Route element={<RecipeCategories />} path="/categories" />
             <Route element={<Recipes />} path="/recipes/:category" />
             <Route element={<Login />} path="/login" />
             <Route element={<Signup />} path="/signup" />
             <Route element={<Account />} path="/account" />
-            {/* <Route element={<About />} path="/about" />
+            <Route element={<About />} path="/about" />
             <Route element={<Menu />} path="/menu" />
-            <Route element={<ShoppingList />} path="/shoppinglist" /> */}
+            {/* <Route element={<ShoppingList />} path="/shoppinglist" /> */}
             <Route element={<Demo />} path="/demo" />
             <Route element={<RecipeDetail />} path="/recipeDescription/:id" />
             <Route element={<h1>Not found!</h1>} />
