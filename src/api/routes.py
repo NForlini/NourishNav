@@ -28,7 +28,7 @@ def handle_signup():
     password = request.json.get("password", None)
     is_active = request.json.get("is_active")
     user = User.query.filter_by(email = email).first()
-    if user:
+    if user is not None:
         return jsonify({"msg": "User account already exists"})
     newUser = User(email = email, password = password, activity_level = "", weight = "")
     db.session.add(newUser)
@@ -43,7 +43,7 @@ def handle_login():
     if user is None:
         return jsonify({"msg" : "Bad username or password"}), 401
     access_token = create_access_token(identity=user.id)
-    return jsonify({"token": access_token, "user_id": user.id}), 200
+    return jsonify({"token": access_token, "user": user.serialize()}), 200
 
 @api.route('/private', methods=['GET'])
 @jwt_required()

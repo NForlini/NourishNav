@@ -2,22 +2,30 @@ import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+// import "../../styles/highlights.css";
 
 export default function Highlights() {
   const [recipe, setRecipe] = useState([]);
+  const { store, actions } = useContext(Context);
 
   async function getRecipe() {
     let response = await fetch(
       "https://www.themealdb.com/api/json/v2/9973533/latest.php"
     );
     let data = await response.json();
-    console.log(data);
     setRecipe(data.meals);
   }
   useEffect(() => {
     getRecipe();
   }, []);
-  console.log(recipe);
+
+  const handleFavorites = (item) => {
+    if (store.favorites.includes(item)) {
+      actions.removeFavorites(item);
+    } else {
+      actions.addFavorites(item);
+    }
+  };
 
   return (
     <div className="d-flex col-10 mx-auto overflow-auto">
@@ -37,9 +45,7 @@ export default function Highlights() {
             >
               Learn More
             </Link>
-            <button onClick={() => handleFavorites(recipeItem.strMeal)}>
-              💖
-            </button>
+            <button onClick={() => handleFavorites(recipeItem)}>💖</button>
           </div>
         </div>
       ))}

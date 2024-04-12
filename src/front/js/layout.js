@@ -13,6 +13,7 @@ import Signup from "./pages/signup";
 import injectContext from "./store/appContext";
 import About from "./pages/about";
 import Menu from "./pages/calendar";
+import Favorites from "./pages/favorites";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -49,6 +50,7 @@ const Layout = () => {
             <Route element={<Account />} path="/account" />
             <Route element={<About />} path="/about" />
             <Route element={<Menu />} path="/menu" />
+            <Route element={<Favorites />} path="/favorites" />
             {/* <Route element={<ShoppingList />} path="/shoppinglist" /> */}
             <Route element={<Demo />} path="/demo" />
             <Route element={<RecipeDetail />} path="/recipeDescription/:id" />

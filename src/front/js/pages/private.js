@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+// import "../../styles/private.css";
 
 const Account = () => {
   const { store, actions } = useContext(Context);

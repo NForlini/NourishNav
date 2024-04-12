@@ -47,9 +47,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
       signUp: async (form) => {
-        console.log(form.email, form.password, "email and password from flux");
-        const url =
-          "https://ideal-journey-jv4qq4q4jpgcqvgr-3001.app.github.dev/api/signup";
+        const url = process.env.BACKEND_URL + "/api/signup";
         await fetch(url, {
           method: "POST",
           headers: {
@@ -76,8 +74,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       login: (form) => {
         const store = getStore();
-        const url =
-          "https://ideal-journey-jv4qq4q4jpgcqvgr-3001.app.github.dev/api/login";
+        const url = process.env.BACKEND_URL + "/api/login";
         fetch(url, {
           method: "Post",
           headers: {
@@ -96,6 +93,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             }
             const data = await resp.json();
             sessionStorage.setItem("token", data.token);
+            setStore({ user: data.user });
           })
           .catch((error) => {
             console.log(error);
@@ -103,8 +101,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       authenticateUser: () => {
         const store = getStore();
-        const url =
-          "https://ideal-journey-jv4qq4q4jpgcqvgr-3001.app.github.dev/api/private";
+        const url = process.env.BACKEND_URL + "/api/private";
 
         //it hates me changing this btw to /account
         fetch(url, {
@@ -151,24 +148,18 @@ const getState = ({ getStore, getActions, setStore }) => {
         const opts = {
           method: "GET",
           headers: {
-            "Content-Type": "application/json",
+            // "Content-Type": "application/json",
             Authorization: "Bearer " + token,
           },
         };
         const res = await fetch(process.env.BACKEND_URL + "/api/user", opts);
-        if (res.status < 200 || res.status >= 300) {
-          throw new Error("There was an error signing in");
-        }
         const data = await res.json();
-        console.log(data);
         setStore({ user: data });
         return true;
       },
       updateUser: async (email, weight, activity_level, password) => {
         const token = sessionStorage.getItem("token");
-        const store = getStore();
-        const url =
-          "https://ideal-journey-jv4qq4q4jpgcqvgr-3001.app.github.dev/api/user";
+        const url = process.env.BACKEND_URL + "/api/user";
         fetch(url, {
           method: "PUT",
           headers: {

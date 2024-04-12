@@ -13,7 +13,6 @@ export default function RecipeCategories() {
   useEffect(() => {
     getCategories();
   }, []);
-  console.log(categories);
   return (
     <div className="d-flex col-10 mx-auto overflow-auto">
       {categories?.map((category, index) => (

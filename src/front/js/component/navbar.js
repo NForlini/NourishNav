@@ -7,13 +7,18 @@ import { RecipeNutrition } from "./recipes/recipeNutrition";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   const handleLogout = async () => {
     await actions.logout();
     navigate("/login");
-    console.log();
   };
+
+  useEffect(() => {
+    actions.getUser();
+    setUser(store.user);
+  }, []);
 
   return (
     <div id="whole-wheat" className="px-5">
@@ -88,7 +93,7 @@ export const Navbar = () => {
                   Metrics
                 </Link>
               </li>
-              {!store.user ? (
+              {!user ? (
                 <>
                   <li>
                     <Link className="dropdown-item" to="/login">
@@ -96,20 +101,16 @@ export const Navbar = () => {
                     </Link>
                   </li>
                   <li>
-                    <a
-                      className="dropdown-item"
-                      href="#"
-                      onClick={handleLogout}
-                    >
-                      Logout
-                    </a>
+                    <Link className="dropdown-item" to="/signup">
+                      Sign up
+                    </Link>
                   </li>
                 </>
               ) : (
                 <li>
-                  <Link className="dropdown-item" to="/signup">
-                    Sign-up
-                  </Link>
+                  <a className="dropdown-item" href="#" onClick={handleLogout}>
+                    Logout
+                  </a>
                 </li>
               )}
             </ul>

@@ -8,7 +8,6 @@ export default function Account() {
   const [activity_level, setActivity_level] = useState();
 
   useEffect(() => {
-    console.log(token);
     async function getUser() {
       const token = sessionStorage.getItem("token");
       const opts = {
@@ -19,9 +18,6 @@ export default function Account() {
         },
       };
       const res = await fetch(process.env.BACKEND_URL + "/api/user", opts);
-      if (res.status < 200 || res.status >= 300) {
-        throw new Error("There was an error signing in");
-      }
       const data = await res.json();
       setEmail(data.email);
       setWeight(data.weight);
