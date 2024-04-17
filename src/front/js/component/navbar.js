@@ -21,11 +21,11 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <div id="whole-wheat" className="px-5">
+    <div id="whole-wheat-nav" className="px-5">
       <nav className="navbar navbar-expand-lg bg-body-tertiary d-flex justify-content-between">
         <div className="d-flex justify-content-between w-100">
           <div>
-            <a className="navbar-brand" to={store.user ? "/profile" : "/"}>
+            <Link className="navbar-brand" to={store.user ? "/" : "/profile"}>
               <img
                 src="https://i.imgur.com/nubofpV.png"
                 alt="Logo"
@@ -33,8 +33,8 @@ export const Navbar = () => {
                 height="40px"
                 className="d-inline-block align-text-top"
               />
-            </a>
-            <Link className="navbar-brand" to={store.user ? "/profile" : "/"}>
+            </Link>
+            <Link className="navbar-brand" to={store.user ? "/" : "/profile"}>
               NourishNav
             </Link>
           </div>
