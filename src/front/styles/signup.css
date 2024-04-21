@@ -1,0 +1,19 @@
+#h2 {
+  font-family: "Satisfy", cursive;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 10%;
+}
+#password {
+  font-family: "Satisfy", cursive;
+  font-weight: 400;
+  font-style: normal;
+  text-justify: auto;
+}
+#email {
+  font-family: "Satisfy", cursive;
+  font-weight: 400;
+  font-style: normal;
+  text-justify: auto;
+}

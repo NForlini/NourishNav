@@ -29,12 +29,19 @@ const Signup = () => {
 
   return (
     <div className="container mt-5">
+      <style>
+        @import
+        url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+      </style>
       <form className="row g-3 border border-lightgray">
-        <div className="py-2 bg-light border-bottom border-lightgray mt-0 text-center">
+        <div
+          id="h2"
+          className="py-2 bg-light border-bottom border-lightgray mt-0 text-center"
+        >
           <h2>Signup</h2>
         </div>
         <div className="col-md-12">
-          <label htmlFor="email" className="form-label">
+          <label id="email" htmlFor="email" className="form-label">
             Email
           </label>
           <input
@@ -42,12 +49,11 @@ const Signup = () => {
             value={formValue.email}
             type="email"
             className="form-control"
-            placeholder="Enter email"
             id="email"
           />
         </div>
         <div className="col-md-12">
-          <label htmlFor="password" className="form-label">
+          <label id="password" htmlFor="password" className="form-label">
             Password
           </label>
           <input
@@ -55,15 +61,14 @@ const Signup = () => {
             value={formValue.password}
             type="password"
             className="form-control"
-            placeholder="Enter password"
             id="password"
           />
         </div>
         <button
           type="button"
-          // onClick={() => actions.signUp(formValue, navigate)}
-          onClick={handleSignUp}
-          className="btn btn-primary"
+          onClick={() => actions.signUp(formValue, navigate)}
+          // onClick={handleSignUp}
+          className="btn btn-success"
         >
           Signup
         </button>

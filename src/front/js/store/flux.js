@@ -103,7 +103,6 @@ const getState = ({ getStore, getActions, setStore }) => {
         const store = getStore();
         const url = process.env.BACKEND_URL + "/api/private";
 
-        //it hates me changing this btw to /account
         fetch(url, {
           method: "GET",
           headers: {
@@ -180,7 +179,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             console.log(error);
           });
       },
-    }, // This closing brace was missing
+    },
   };
 };
 

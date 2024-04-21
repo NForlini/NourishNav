@@ -1,8 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
-// WHY ARE YOU LIKE THIS?!?!?!?
-// import "../../styles/login.css";
+import "../../styles/login.css";
 
 export const Login = () => {
   const { store, actions } = useContext(Context);
@@ -25,11 +24,18 @@ export const Login = () => {
 
   return (
     <div id="whole-wheat-login" className="container mt-5">
+      <style>
+        @import
+        url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+      </style>
       <form className="row g-3 border border-lightgray">
-        <div className="py-2 bg-light border-bottom border-lightgray mt-0 text-center">
+        <div
+          id="h2"
+          className="py-2 bg-light border-bottom border-lightgray mt-0 text-center"
+        >
           <h2>Login</h2>
         </div>
-        <div className="col-md-12">
+        <div id="email" className="col-md-12">
           <label htmlFor="email" className="form-label">
             Email
           </label>
@@ -42,7 +48,7 @@ export const Login = () => {
             onChange={handleChange}
           />
         </div>
-        <div className="col-md-12">
+        <div id="password" className="col-md-12">
           <label htmlFor="password" className="form-label">
             Password
           </label>
@@ -56,16 +62,17 @@ export const Login = () => {
           />
         </div>
         <button
+          id="button"
           type="button"
           onClick={(e) => handleLogin(e)}
-          className="btn btn-primary"
+          className="btn btn-success"
         >
           Login
         </button>
         {/* <button
           type="button"
           onClick={handleResetPassword}
-          className="btn btn-alert"
+          className="btn btn-alert-disabled"
         >
           {" "}
           Forgot Password

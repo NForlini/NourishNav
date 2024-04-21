@@ -4,21 +4,36 @@
   gap: 20px;
   padding: 20px;
   background-color: #f9f9f9;
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-template-rows: 70px minmax(160px, auto) auto;
+  grid-template-areas: "leftbar main" "footer footer";
+  column-gap: 20px;
+  row-gap: 20px;
 }
 
-.first,
-.second,
-.third {
+.main-recipe,
+.diets {
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.first {
+.main-recipe {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.buttons,
+.main-recipe {
+  grid-area: main;
+}
+
+#RecipeOTD,
+#RecipeOTDName {
+  grid-area: leftbar;
 }
 
 .recipe {
@@ -29,6 +44,9 @@
   max-width: 100%;
   height: auto;
   border-radius: 8px;
+  display: flex;
+  align-items: right;
+  grid-area: main;
 }
 
 .buttons {
@@ -52,10 +70,11 @@ button:hover {
   background-color: #45a049;
 }
 
-.second {
+.diets {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  grid-area: footer;
 }
 
 .option {
@@ -71,7 +90,7 @@ button:hover {
   margin-bottom: 8px;
 }
 
-.third {
+/* .third {
   text-align: center;
 }
 
@@ -79,7 +98,7 @@ button:hover {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
-}
+} */
 
 @media (max-width: 768px) {
   .second .option {
