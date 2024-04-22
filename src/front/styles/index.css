@@ -1,6 +1,16 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
-body {
+.whole-wheat {
   background-color: #f2fedc;
+  margin: 0;
+  padding: 0;
+  background: url("../img/background-one.png");
+  /* background: url("https://cdn.vectorstock.com/i/500p/87/75/creative-minimalist-hand-painted-botanical-vector-39108775.jpg"); */
+  /* background: url("https://img.freepik.com/premium-vector/abstract-leaf-eucalyptus-branch-minimalist-boho-style-plant-postcard-botanical-wall-print-wallpaper-cover-vector-illustration_527702-83.jpg"); */
+  /* background-repeat: no-repeat;
+  background-size: 800px;
+  background-position: 25% 0 75% 0;
+  justify-content: center;
+  opacity: 0.5;  */
 }

@@ -33,7 +33,7 @@ export const Home = () => {
   const featuredCategories = ["Vegetarian", "Vegan", "Seafood"];
 
   return (
-    <div className="whole-wheat">
+    <div className="whole-wheat whole-wheat-home">
       <div className="main-recipe">
         <h3 id="RecipeOTD">Recipe of The Day</h3>
         <p id="RecipeOTDName">
@@ -44,7 +44,9 @@ export const Home = () => {
             <img
               src={randomRecipe.strMealThumb}
               alt={randomRecipe.strMeal}
-              style={{ maxWidth: "50%", marginBottom: "10px" }}
+              width="100px"
+              height="100px"
+              // style={{ maxWidth: "50%", marginBottom: "10px" }}
             />
           </div>
         )}

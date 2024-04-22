@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-
 import { Context } from "../../store/appContext";
 
 export const RecipeNutrition = () => {
@@ -45,7 +44,8 @@ export const RecipeNutrition = () => {
       </div>
       {showResults === true ? (
         <div
-          className="accordion accordion-flush position-absolute top-100 start-0 translate-middle-x"
+          // className="accordion accordion-flush position-absolute top-100 start-0 translate-middle-x"
+          className="accordion accordion-flush position-absolute justify-content-between"
           id="accordionFlushExample"
         >
           <div className="accordion-item">

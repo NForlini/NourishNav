@@ -9,6 +9,7 @@ export default function Account() {
 
   useEffect(() => {
     async function getUser() {
+      console.log(token);
       const token = sessionStorage.getItem("token");
       const opts = {
         method: "GET",
@@ -26,7 +27,7 @@ export default function Account() {
     getUser();
   }, []);
   return (
-    <div>
+    <div className="whole-wheat whole-wheat-acc">
       <button
         type="button"
         className="btn btn-primary"

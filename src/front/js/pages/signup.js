@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
-// import "../../styles/signup.css";
+import "../../styles/signup.css";
 
 const Signup = () => {
   const { store, actions } = useContext(Context);
@@ -28,7 +28,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="whole-wheat whole-wheat-signup container mt-5">
       <style>
         @import
         url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
@@ -48,7 +48,7 @@ const Signup = () => {
             onChange={onChange}
             value={formValue.email}
             type="email"
-            className="form-control"
+            className="form-control signup-input"
             id="email"
           />
         </div>
@@ -60,11 +60,12 @@ const Signup = () => {
             onChange={onChange}
             value={formValue.password}
             type="password"
-            className="form-control"
+            className="form-control signup-input"
             id="password"
           />
         </div>
         <button
+          id="button"
           type="button"
           onClick={() => actions.signUp(formValue, navigate)}
           // onClick={handleSignUp}

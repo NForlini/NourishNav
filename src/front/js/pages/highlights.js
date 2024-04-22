@@ -29,7 +29,7 @@ export default function Highlights() {
 
   return (
     <div
-      id="whole-wheat-highlights"
+      id="whole-wheat whole-wheat-highlights"
       className="d-flex col-10 mx-auto overflow-auto"
     >
       {recipe?.map((recipeItem, index) => (

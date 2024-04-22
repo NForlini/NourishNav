@@ -18,7 +18,7 @@ const Account = () => {
   }, []);
 
   return (
-    <div className="container text-center">
+    <div className="whole-wheat container text-center">
       <style>
         @import
         url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');

@@ -22,7 +22,11 @@ export const Demo = () => {
   }
 
   return (
-    <div className="whole-wheat text-center">
+    <div className="text-center">
+      <img
+        src="https://img.freepik.com/premium-vector/abstract-leaf-eucalyptus-branch-minimalist-boho-style-plant-postcard-botanical-wall-print-wallpaper-cover-vector-illustration_527702-83.jpg"
+        style={{ opacity: "0.5", transform: "rotate(20deg)" }}
+      />
       <h1>Login</h1>
       <div className="signupContainer">
         <form>

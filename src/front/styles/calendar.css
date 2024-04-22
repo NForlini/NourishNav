@@ -1,0 +1,7 @@
+#whole-wheat-cal {
+  display: flex;
+  justify-content: center;
+  background-color: #f2fedc;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}

@@ -16,7 +16,7 @@ export default function Favorites(props) {
   return (
     <div
       id="whole-wheat-favorites"
-      className="d-flex col-10 mx-auto overflow-auto"
+      className="whole-wheat d-flex col-10 mx-auto overflow-auto"
     >
       {store.favorites?.map((recipeItem, index) => (
         <div

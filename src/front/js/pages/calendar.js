@@ -3,6 +3,7 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
+import "../../styles/calendar.css";
 
 const localizer = momentLocalizer(moment);
 const DraggableCalendar = withDragAndDrop(Calendar);
@@ -38,12 +39,12 @@ export default function CalendarComponent() {
         title: e.target.value,
       };
       setEvents([...events, newEvent]);
-      e.target.value = ""; // Clear input after adding event
+      e.target.value = "";
     }
   };
 
   return (
-    <div>
+    <div id="whole-wheat whole-wheat-cal">
       <DraggableCalendar
         defaultDate={moment().toDate()}
         defaultView="month"

@@ -64,7 +64,7 @@ export default function RecipeCard(props) {
     }
   };
   return (
-    <div className="d-flex col-10 mx-auto overflow-auto">
+    <div className="whole-wheat whole-wheat-RC d-flex col-10 mx-auto overflow-auto">
       {recipe?.map((recipeItem, index) => (
         <div key={index} className="card" style={{ minWidth: "18rem" }}>
           <img

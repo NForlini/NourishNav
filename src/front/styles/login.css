@@ -17,3 +17,14 @@
   font-style: normal;
   text-justify: auto;
 }
+#button {
+  font-family: "Satisfy", cursive;
+  font-weight: 400;
+  font-style: normal;
+  text-justify: auto;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+.login-input {
+  font-family: "Courier New", Courier, monospace;
+}

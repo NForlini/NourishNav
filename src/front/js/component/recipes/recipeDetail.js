@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import "./recipeDetail.css";
+
+// WHY ARE YOU LIKE THIS AGAIN?!?!?!
 
 export default function RecipeDetail() {
   const [recipe, setRecipe] = useState({});
@@ -31,9 +34,12 @@ export default function RecipeDetail() {
   }, [recipe]);
 
   return (
-    <div className="mx-auto w-100">
+    <div
+      id="whole-wheat whole-wheat-RD"
+      className="whole-wheat-RD mx-auto w-100"
+    >
       <img
-        className="recipe-pic"
+        className="recipeImg"
         src={recipe.strMealThumb}
         alt={recipe.strMeal}
       />

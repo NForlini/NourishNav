@@ -21,7 +21,7 @@ export default function RecipeCategories() {
   }, []);
 
   return (
-    <div className="d-flex flex-wrap justify-content-center col-10 mx-auto overflow-auto">
+    <div className="whole-wheat whole-wheat-RCat d-flex flex-wrap justify-content-center col-10 mx-auto overflow-auto">
       {categories.map((category, index) => (
         <div
           key={index}

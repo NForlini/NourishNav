@@ -30,7 +30,7 @@ const Private = () => {
   // }, [actions, navigate, store.user]);
 
   return (
-    <div className="container text-center">
+    <div className="whole-wheat container text-center">
       <h1>Hello!</h1>
       <ol
         className="list-group list-group-numbered w-25 h-100"

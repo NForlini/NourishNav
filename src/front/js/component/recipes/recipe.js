@@ -7,7 +7,7 @@ export default function Recipes() {
   const { category } = useParams();
 
   return (
-    <div>
+    <div className="whole-wheat whole-wheat-recipe">
       <RecipeCard category={category} />
     </div>
   );

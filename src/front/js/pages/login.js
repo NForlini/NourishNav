@@ -23,7 +23,7 @@ export const Login = () => {
   }
 
   return (
-    <div id="whole-wheat-login" className="container mt-5">
+    <div id="whole-wheat-login" className="whole-wheat whole-wheat-login container mt-5">
       <style>
         @import
         url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
@@ -42,7 +42,7 @@ export const Login = () => {
           <input
             type="text"
             id="inputPassword6"
-            className="mt-0 form-control"
+            className="mt-0 form-control login-input"
             name="email"
             value={userInfo.email}
             onChange={handleChange}
@@ -55,7 +55,7 @@ export const Login = () => {
           <input
             type="password"
             id="inputPassword6"
-            className="mt-0 form-control"
+            className="mt-0 form-control login-input"
             name="password"
             value={userInfo.password}
             onChange={handleChange}

@@ -91,7 +91,7 @@ const getState = ({ getStore, getActions, setStore }) => {
               alert("wrong username or password");
               return false;
             }
-            const data = await resp.json();
+            const data = resp.json();
             sessionStorage.setItem("token", data.token);
             setStore({ user: data.user });
           })
