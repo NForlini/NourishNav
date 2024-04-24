@@ -17,40 +17,27 @@ export const Navbar = () => {
 
   useEffect(() => {
     actions.getUser();
-    setUser(store.user);
-  }, []);
+  }, [actions]);
 
   return (
     <div id="whole-wheat-nav" className="px-5">
       <nav className="navbar navbar-expand-lg bg-body-tertiary d-flex justify-content-between">
         <div className="d-flex justify-content-between w-100">
           <div>
-            <Link className="navbar-brand" to={store.user ? "/" : "/profile"}>
+            <Link className="navbar-brand" to="/">
               <img
-                src="https://i.imgur.com/nubofpV.png"
+                src="https://i.ibb.co/D8KH1nR/fulllogo-transparent-nobuffer.png"
                 alt="Logo"
                 width="40px"
                 height="40px"
                 className="d-inline-block align-text-top"
               />
             </Link>
-            <Link className="navbar-brand" to={store.user ? "/" : "/profile"}>
+            <Link className="navbar-brand" to={store.user ? "/account" : "/"}>
               NourishNav
             </Link>
           </div>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
           <RecipeNutrition />
-
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <Link className="nav-link" to="/features">
@@ -83,17 +70,29 @@ export const Navbar = () => {
               Account
             </button>
             <ul className="dropdown-menu">
-              <li>
-                <Link className="dropdown-item" to="/favorites">
-                  Favorites
-                </Link>
-              </li>
-              <li>
-                <Link className="dropdown-item" to="/metrics">
-                  Metrics
-                </Link>
-              </li>
-              {!user ? (
+              {store.user ? (
+                <>
+                  <li>
+                    <Link className="dropdown-item" to="/favorites">
+                      Favorites
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/metrics">
+                      Metrics
+                    </Link>
+                  </li>
+                  <li>
+                    <a
+                      className="dropdown-item"
+                      href="#"
+                      onClick={handleLogout}
+                    >
+                      Logout
+                    </a>
+                  </li>
+                </>
+              ) : (
                 <>
                   <li>
                     <Link className="dropdown-item" to="/login">
@@ -106,12 +105,6 @@ export const Navbar = () => {
                     </Link>
                   </li>
                 </>
-              ) : (
-                <li>
-                  <a className="dropdown-item" href="#" onClick={handleLogout}>
-                    Logout
-                  </a>
-                </li>
               )}
             </ul>
           </div>

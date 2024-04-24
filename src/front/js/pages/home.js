@@ -2,12 +2,18 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
+import "../../styles/index.css";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const [randomRecipe, setRandomRecipe] = useState(null);
+  const [isReadMore, setIsReadMore] = useState(true);
+
+  const toggleReadMore = () => {
+    setIsReadMore(!isReadMore);
+  };
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -35,22 +41,28 @@ export const Home = () => {
   return (
     <div className="whole-wheat whole-wheat-home">
       <div className="main-recipe">
-        <h3 id="RecipeOTD">Recipe of The Day</h3>
-        <p id="RecipeOTDName">
-          {randomRecipe ? randomRecipe.strMeal : "Loading..."}
-        </p>
-        {randomRecipe && (
-          <div className="image">
-            <img
-              src={randomRecipe.strMealThumb}
-              alt={randomRecipe.strMeal}
-              width="100px"
-              height="100px"
-              // style={{ maxWidth: "50%", marginBottom: "10px" }}
-            />
-          </div>
-        )}
-        <div className="home-recipes">
+        <div>
+          <h3 id="RecipeOTD">Recipe of The Day</h3>
+          <h5 id="RecipeOTDName">
+            {randomRecipe ? randomRecipe.strMeal : "Loading..."}
+          </h5>
+          {randomRecipe && (
+            <div>
+              <p className={`recipe-details ${isReadMore ? "" : "expanded"}`}>
+                {randomRecipe.strInstructions}
+              </p>
+              {randomRecipe.strInstructions.length > 750 && (
+                <button className="read-more" onClick={toggleReadMore}>
+                  {isReadMore ? "Read More" : "Show Less"}
+                </button>
+              )}
+            </div>
+          )}
+        </div>
+        <div className="image">
+          {randomRecipe && (
+            <img src={randomRecipe.strMealThumb} alt={randomRecipe.strMeal} />
+          )}
           <div className="buttons">
             <button
               onClick={() =>

@@ -72,32 +72,24 @@ const getState = ({ getStore, getActions, setStore }) => {
             console.log(error);
           });
       },
-      login: (form) => {
-        const store = getStore();
-        const url = process.env.BACKEND_URL + "/api/login";
-        fetch(url, {
-          method: "Post",
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-          },
-          body: JSON.stringify({
-            email: form.email,
-            password: form.password,
-          }),
-        })
-          .then(async (resp) => {
-            if (!resp.ok) {
-              alert("wrong username or password");
-              return false;
-            }
-            const data = resp.json();
-            sessionStorage.setItem("token", data.token);
-            setStore({ user: data.user });
-          })
-          .catch((error) => {
-            console.log(error);
+      login: async (form) => {
+        const url = `${process.env.BACKEND_URL}/api/login`;
+        try {
+          const response = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(form),
           });
+          if (!response.ok) {
+            throw new Error("Incorrect username or password");
+          }
+          const data = await response.json();
+          sessionStorage.setItem("token", data.token);
+          setStore({ user: data.user, token: data.token });
+        } catch (error) {
+          console.error("Login error:", error);
+          alert(error.message);
+        }
       },
       authenticateUser: () => {
         const store = getStore();
@@ -130,9 +122,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           setStore({ token: token });
       },
       logout: () => {
-        setStore({ user: null });
         sessionStorage.removeItem("token");
-        setStore({ token: null });
+        setStore({ user: null, token: null });
       },
       changeColor: (index, color) => {
         const store = getStore();
@@ -143,18 +134,28 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ demo: demo });
       },
       getUser: async () => {
-        const token = sessionStorage.getItem("token");
-        const opts = {
-          method: "GET",
-          headers: {
-            // "Content-Type": "application/json",
-            Authorization: "Bearer " + token,
-          },
-        };
-        const res = await fetch(process.env.BACKEND_URL + "/api/user", opts);
-        const data = await res.json();
-        setStore({ user: data });
-        return true;
+        const store = getStore();
+        if (!store.token) {
+          alert("Authentication token not found. Please log in.");
+          return false;
+        }
+        const url = `${process.env.BACKEND_URL}/api/user`;
+        try {
+          const response = await fetch(url, {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${store.token}`,
+            },
+          });
+          if (!response.ok) {
+            throw new Error("Failed to fetch user data");
+          }
+          const data = await response.json();
+          setStore({ user: data });
+        } catch (error) {
+          console.error("Get User error:", error);
+          alert(error.message);
+        }
       },
       updateUser: async (email, weight, activity_level, password) => {
         const token = sessionStorage.getItem("token");

@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 import "../../styles/login.css";
+import "../../styles/index.css";
 
 export const Login = () => {
   const { store, actions } = useContext(Context);
@@ -23,38 +24,41 @@ export const Login = () => {
   }
 
   return (
-    <div id="whole-wheat-login" className="whole-wheat whole-wheat-login container mt-5">
+    <div
+      id="whole-wheat-login"
+      className="whole-wheat whole-wheat-login container mt-5"
+    >
       <style>
         @import
         url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
       </style>
       <form className="row g-3 border border-lightgray">
         <div
-          id="h2"
+          id="login-header"
           className="py-2 bg-light border-bottom border-lightgray mt-0 text-center"
         >
-          <h2>Login</h2>
+          <h2 style={{ fontFamily: "Satisfy" }}>Login</h2>
         </div>
-        <div id="email" className="col-md-12">
-          <label htmlFor="email" className="form-label">
+        <div id="email-field" className="col-md-12">
+          <label htmlFor="email-input" className="form-label">
             Email
           </label>
           <input
             type="text"
-            id="inputPassword6"
+            id="email-input"
             className="mt-0 form-control login-input"
             name="email"
             value={userInfo.email}
             onChange={handleChange}
           />
         </div>
-        <div id="password" className="col-md-12">
-          <label htmlFor="password" className="form-label">
+        <div id="password-field" className="col-md-12">
+          <label htmlFor="password-input" className="form-label">
             Password
           </label>
           <input
             type="password"
-            id="inputPassword6"
+            id="password-input"
             className="mt-0 form-control login-input"
             name="password"
             value={userInfo.password}
@@ -62,21 +66,13 @@ export const Login = () => {
           />
         </div>
         <button
-          id="button"
+          id="login-button"
           type="button"
-          onClick={(e) => handleLogin(e)}
+          onClick={handleLogin}
           className="btn btn-success"
         >
           Login
         </button>
-        {/* <button
-          type="button"
-          onClick={handleResetPassword}
-          className="btn btn-alert-disabled"
-        >
-          {" "}
-          Forgot Password
-        </button> */}
       </form>
     </div>
   );

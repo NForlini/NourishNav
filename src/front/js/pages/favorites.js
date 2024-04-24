@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/favorites.css";
+import "../../styles/index.css";
 
 export default function Favorites(props) {
   const { store, actions } = useContext(Context);
@@ -32,7 +33,7 @@ export default function Favorites(props) {
             alt="..."
           />
           <div id="favorites-recipe" className="card-body">
-            <h5 className="card-title">{recipeItem.strMeal}</h5>\
+            <h5 className="card-title">{recipeItem.strMeal}</h5>
             <Link
               to={"/recipeDescription/" + recipeItem.idMeal}
               className="btn btn-primary"

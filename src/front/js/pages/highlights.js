@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../../styles/highlights.css";
+import "../../styles/index.css";
 
 export default function Highlights() {
   const [recipe, setRecipe] = useState([]);
@@ -29,8 +30,8 @@ export default function Highlights() {
 
   return (
     <div
-      id="whole-wheat whole-wheat-highlights"
-      className="d-flex col-10 mx-auto overflow-auto"
+      id="whole-wheat-highlights"
+      className="d-flex col-10 mx-auto overflow-auto whole-wheat"
     >
       {recipe?.map((recipeItem, index) => (
         <div

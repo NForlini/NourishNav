@@ -5,15 +5,34 @@
   font-weight: 400;
   font-style: normal;
   padding: 15px;
+  justify-self: center;
 }
 #whole-wheat-about {
-  margin: 0;
-  padding: 0;
-  background: url("https://cdn.vectorstock.com/i/500p/87/75/creative-minimalist-hand-painted-botanical-vector-39108775.jpg");
-  background: url("https://img.freepik.com/premium-vector/abstract-leaf-eucalyptus-branch-minimalist-boho-style-plant-postcard-botanical-wall-print-wallpaper-cover-vector-illustration_527702-83.jpg");
-  background-repeat: no-repeat;
-  background-size: 800px;
-  background-position: 25% 0 75% 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  opacity: 0.5;
+  text-align: center;
+  margin: auto;
+  padding: 20px;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background-color: #f2fedc;
+}
+* {
+  box-sizing: border-box;
+}
+
+.about-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import "./recipeDetail.css";
-
-// WHY ARE YOU LIKE THIS AGAIN?!?!?!
+import "../../../styles/recipeDetail.css";
+import "../../../styles/index.css";
 
 export default function RecipeDetail() {
   const [recipe, setRecipe] = useState({});

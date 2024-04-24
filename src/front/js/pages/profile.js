@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 import Metrics from "./metrics";
 import "../../styles/profile.css";
+import "../../styles/index.css";
 
 const Private = () => {
   const { store, actions } = useContext(Context);

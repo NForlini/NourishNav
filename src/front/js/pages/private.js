@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "../../styles/private.css";
+import "../../styles/index.css";
 
 const Account = () => {
   const { store, actions } = useContext(Context);

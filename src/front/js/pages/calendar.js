@@ -4,6 +4,7 @@ import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
 import "../../styles/calendar.css";
+import "../../styles/index.css";
 
 const localizer = momentLocalizer(moment);
 const DraggableCalendar = withDragAndDrop(Calendar);
@@ -44,7 +45,7 @@ export default function CalendarComponent() {
   };
 
   return (
-    <div id="whole-wheat whole-wheat-cal">
+    <div id="whole-wheat-cal" className="whole-wheat">
       <DraggableCalendar
         defaultDate={moment().toDate()}
         defaultView="month"
