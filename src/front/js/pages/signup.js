@@ -16,16 +16,10 @@ const Signup = () => {
   }
 
   const handleSignUp = async () => {
-    // console.log(
-    //   formValue,
-    //   "formValue",
-    //   formValue.email,
-    //   "email",
-    //   formValue.password,
-    //   "password"
-    // );
-    await actions.signUp(formValue);
-    navigate("/login");
+    const result = await actions.signUp(formValue);
+    if (result) {
+      navigate("/login");
+    }
   };
 
   return (
@@ -68,8 +62,7 @@ const Signup = () => {
         <button
           id="button"
           type="button"
-          onClick={() => actions.signUp(formValue, navigate)}
-          // onClick={handleSignUp}
+          onClick={handleSignUp}
           className="btn btn-success"
         >
           Signup

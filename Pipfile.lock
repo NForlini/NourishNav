@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b1d8cc06bdc4a74d8200fc3b6bd788de6ea65a2abecd9d83129715a37e0117d4"
+            "sha256": "fbebdfb43d3c1a1598843146261ec51dbc01c45842fcd1b94361fa6919675d04"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -183,6 +183,13 @@
             "index": "pypi",
             "version": "==4.6.0"
         },
+        "flask-mail": {
+            "hashes": [
+                "sha256:22e5eb9a940bf407bcf30410ecc3708f3c56cc44b29c34e1726fe85006935f41"
+            ],
+            "index": "pypi",
+            "version": "==0.9.1"
+        },
         "flask-migrate": {
             "hashes": [
                 "sha256:5c532be17e7b43a223b7500d620edae33795df27c75811ddf32560f7d48ec617",
@@ -190,6 +197,13 @@
             ],
             "index": "pypi",
             "version": "==4.0.7"
+        },
+        "flask-requests": {
+            "hashes": [
+                "sha256:3f4a589cd41df56fb53827cb29b6fa1bc63ec3a4d1993fd72c08750534e07e8d"
+            ],
+            "index": "pypi",
+            "version": "==0.0.14"
         },
         "flask-sqlalchemy": {
             "hashes": [
@@ -385,6 +399,14 @@
             "markers": "python_version >= '3.7'",
             "version": "==24.0"
         },
+        "pampy": {
+            "hashes": [
+                "sha256:304470a6562173096fc88c22dc0ab50401ca2e3875a8725ee510759ec8ba58ff",
+                "sha256:82054212e4478fc22163c55321a3583eda9918aff4440eed6c197e872a2a667b"
+            ],
+            "markers": "python_version >= '3.7'",
+            "version": "==0.3.0"
+        },
         "psycopg2-binary": {
             "hashes": [
                 "sha256:03ef7df18daf2c4c07e2695e8cfd5ee7f748a1d54d802330985a78d2a5a6dca9",
@@ -479,6 +501,14 @@
             "index": "pypi",
             "version": "==1.0.1"
         },
+        "python-http-client": {
+            "hashes": [
+                "sha256:ad371d2bbedc6ea15c26179c6222a78bc9308d272435ddf1d5c84f068f249a36",
+                "sha256:bf841ee45262747e00dec7ee9971dfb8c7d83083f5713596488d67739170cea0"
+            ],
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "version": "==3.3.7"
+        },
         "pyyaml": {
             "hashes": [
                 "sha256:04ac92ad1925b2cff1db0cfebffb6ffc43457495c9b3c39d3fcae417d7125dc5",
@@ -544,6 +574,14 @@
             "index": "pypi",
             "version": "==2.31.0"
         },
+        "sendgrid": {
+            "hashes": [
+                "sha256:43ecf5bb742ea5850c7cfe68f5e7d9948772352306d4e83e119899959538b884",
+                "sha256:71424b2a97f5a034121ea3b2666c653ba0ed315982f0d57b7851c0c9503dc5ab"
+            ],
+            "index": "pypi",
+            "version": "==6.11.0"
+        },
         "six": {
             "hashes": [
                 "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926",
@@ -598,6 +636,12 @@
             ],
             "index": "pypi",
             "version": "==1.4.46"
+        },
+        "starkbank-ecdsa": {
+            "hashes": [
+                "sha256:9399c3371b899d4a235b68a1ed7919d202fbf024bd2c863ae8ebdad343c2a63a"
+            ],
+            "version": "==2.2.0"
         },
         "typing-extensions": {
             "hashes": [

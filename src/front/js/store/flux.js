@@ -48,29 +48,31 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       signUp: async (form) => {
         const url = process.env.BACKEND_URL + "/api/signup";
-        await fetch(url, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "*",
-          },
-          body: JSON.stringify({
-            email: form.email,
-            password: form.password,
-            is_active: true,
-          }),
-        })
-          .then(async (resp) => {
-            if (!resp.ok) {
-              alert("user already exists");
-              return false;
-            }
-            await resp.json();
-          })
-          .catch((error) => {
-            console.log(error);
+        try {
+          const response = await fetch(url, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods": "*",
+            },
+            body: JSON.stringify({
+              email: form.email,
+              password: form.password,
+              is_active: true,
+            }),
           });
+          const data = await response.json();
+          if (!response.ok) {
+            alert("User already exists or other error.");
+            return false;
+          }
+          return true;
+        } catch (error) {
+          console.error("Sign up error:", error);
+          alert("An error occurred during sign up.");
+          return false;
+        }
       },
       login: async (form) => {
         const url = `${process.env.BACKEND_URL}/api/login`;
@@ -135,9 +137,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       getUser: async () => {
         const store = getStore();
-        if (!store.token) {
-          alert("Authentication token not found. Please log in.");
-          return false;
+        if (store.user || !store.token) {
+          // alert("Authentication token not found. Please log in.");
+          return;
         }
         const url = `${process.env.BACKEND_URL}/api/user`;
         try {
