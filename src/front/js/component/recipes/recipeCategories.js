@@ -35,7 +35,12 @@ export default function RecipeCategories() {
           />
           <div className="card-body">
             <h5 className="card-title">{category.strCategory}</h5>
-            <p className="card-text">{category.strCategoryDescription}</p>
+            <p
+              className="card-text"
+              style={{ height: "300px", overflow: "scroll" }}
+            >
+              {category.strCategoryDescription}
+            </p>
             <Link
               to={`/recipes/${category.strCategory}`}
               className="btn btn-primary"

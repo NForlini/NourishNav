@@ -6,3 +6,32 @@
 /* #whole-wheat-RD {
   background-color: #f2fedc;
 } */
+.recipeName {
+  justify-content: center;
+  font-family: "Satisfy", cursive;
+  font-weight: 400;
+  font-style: normal;
+  display: flex;
+  padding: 15px;
+  justify-self: center;
+  font-size: xx-large;
+}
+.recipeImg {
+  height: 500px;
+  width: 500px;
+  margin-left: 250px;
+  margin-top: 50px;
+}
+
+.ingredients {
+  padding: 50px;
+  margin-left: 150px;
+}
+
+.ingName {
+  margin-left: 300px;
+}
+.method {
+  margin: 100px;
+  font-size: medium;
+}

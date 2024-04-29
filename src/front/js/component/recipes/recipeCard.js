@@ -74,7 +74,6 @@ export default function RecipeCard(props) {
           />
           <div className="card-body">
             <h5 className="card-title">{recipeItem.strMeal}</h5>
-            {/* I don't think this link is correct because I don't have a recipeDescription.js */}
             <Link
               to={"/recipeDescription/" + recipeItem.idMeal}
               className="btn btn-primary"
