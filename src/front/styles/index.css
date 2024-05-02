@@ -9,3 +9,22 @@
   background-size: 800px !important;
 }
 /*https://ibb.co/jvT8R1L */
+.whole-wheat-RC {
+  min-height: 100dvh;
+  width: 95%;
+  padding: 0 60px;
+  .card {
+    box-shadow: 19px 21px 21px rgba(0, 0, 0, 0.3);
+    min-width: 18rem;
+    height: 28rem;
+    margin: auto 5px;
+  }
+}
+.whole-wheat-RCat {
+  .card {
+    background: transparent;
+    box-shadow: 19px 21px 21px rgba(0, 0, 0, 0.3);
+    overflow-x: hidden !important;
+    overflow-y: auto;
+  }
+}

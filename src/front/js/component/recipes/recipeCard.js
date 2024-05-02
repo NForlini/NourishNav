@@ -1,49 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../store/appContext";
+import "../../../styles/recipeCard.css";
 
 export default function RecipeCard(props) {
   const [recipe, setRecipe] = useState([]);
   const { store, actions } = useContext(Context);
 
-  // useEffect(() => {
-  //   // Does this search work?
-  //   document
-  //     .getElementById("searchForm")
-  //     .addEventListener("submit", function (event) {
-  //       event.preventDefault();
-
-  //       var query = document.getElementById("searchInput").value;
-
-  //       fetch(
-  //         "https://api.calorieninjas.com/v1/nutrition?query=" +
-  //           encodeURIComponent(query),
-  //         {
-  //           method: "GET",
-  //           headers: {
-  //             "X-Api-Key": "a6SJ0mhQQeAcTQWuf6iKvQ==eL9qCOhw9zSvjNxM",
-  //             "Content-Type": "application/json",
-  //           },
-  //         }
-  //       )
-  //         .then((response) => {
-  //           if (!response.ok) {
-  //             throw new Error("Network response was not ok");
-  //           }
-  //           return response.json();
-  //         })
-  //         .then((result) => {
-  //           console.log(result);
-  //         })
-  //         .catch((error) => {
-  //           console.error("Error: ", error);
-  //         });
-  //     });
-  // }, []);
-  // dont think you need this, too scared to delete it
-  //me too T-T
-  //
-  // but use this one with the recipe api
   async function getRecieps() {
     let response = await fetch(
       "https://www.themealdb.com/api/json/v2/9973533/filter.php?c=" +
@@ -76,11 +39,14 @@ export default function RecipeCard(props) {
             <h5 className="card-title">{recipeItem.strMeal}</h5>
             <Link
               to={"/recipeDescription/" + recipeItem.idMeal}
-              className="btn btn-primary"
+              className="btn btn-outline-success"
             >
               Learn More
             </Link>
-            <button onClick={() => handleFavorites(recipeItem.strMeal)}>
+            <button
+              className="btn btn-success-active"
+              onClick={() => handleFavorites(recipeItem.strMeal)}
+            >
               💖
             </button>
           </div>

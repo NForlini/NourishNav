@@ -1,4 +1,8 @@
 #whole-wheat-nav {
   height: 100%;
   background-color: #bac686;
+
+  a {
+    color: #3b4a40 !important;
+  }
 }

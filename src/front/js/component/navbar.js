@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/navbar.css";
 import { RecipeNutrition } from "./recipes/recipeNutrition";
+import Logo from "../../img/ISOTIPO.png";
+import NourishNav from "../../img/TEXTO2.png";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
@@ -26,7 +28,7 @@ export const Navbar = () => {
           <div>
             <Link className="navbar-brand" to="/">
               <img
-                src="https://i.ibb.co/D8KH1nR/fulllogo-transparent-nobuffer.png"
+                src="../../ISOTIPO.png"
                 alt="Logo"
                 width="40px"
                 height="40px"
@@ -34,7 +36,13 @@ export const Navbar = () => {
               />
             </Link>
             <Link className="navbar-brand" to={store.user ? "/account" : "/"}>
-              NourishNav
+              <img
+                src="../../TEXTO2.png"
+                alt="NourishNav"
+                width="100px"
+                height="45px"
+                className="d-inline-block align-text-top"
+              />
             </Link>
           </div>
           <RecipeNutrition />
@@ -62,14 +70,14 @@ export const Navbar = () => {
           </ul>
           <div className="dropdown">
             <button
-              className="btn btn-secondary dropdown-toggle"
+              className="btn btn-outline-success dropdown-toggle"
               type="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
               Account
             </button>
-            <ul className="dropdown-menu">
+            <ul className="dropdown-menu dropdown-menu-end">
               {store.user ? (
                 <>
                   <li>

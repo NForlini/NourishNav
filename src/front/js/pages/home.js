@@ -52,7 +52,10 @@ export const Home = () => {
                 {randomRecipe.strInstructions}
               </p>
               {randomRecipe.strInstructions.length > 750 && (
-                <button className="read-more" onClick={toggleReadMore}>
+                <button
+                  className="btn btn-outline-success"
+                  onClick={toggleReadMore}
+                >
                   {isReadMore ? "Read More" : "Show Less"}
                 </button>
               )}
@@ -65,13 +68,19 @@ export const Home = () => {
           )}
           <div className="buttons">
             <button
+              className="btn btn-outline-success"
               onClick={() =>
                 navigate(`/recipeDescription/${randomRecipe.idMeal}`)
               }
             >
               Recipe
             </button>
-            <button onClick={() => navigate("/favorites")}>Favorites</button>
+            <button
+              className="btn btn-outline-success"
+              onClick={() => navigate("/favorites")}
+            >
+              Favorites
+            </button>
           </div>
         </div>
       </div>
@@ -85,6 +94,7 @@ export const Home = () => {
               <img src={category.strCategoryThumb} alt={category.strCategory} />
               <h6>{category.strCategory}</h6>
               <button
+                className="btn btn-outline-success"
                 onClick={() => navigate(`/recipes/${category.strCategory}`)}
               >
                 Show More

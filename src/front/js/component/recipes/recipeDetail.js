@@ -56,12 +56,25 @@ export default function RecipeDetail() {
           alt={recipe.strMeal}
         />
 
-        <div className="ingredients">
-          <h5 className="ingName">Ingredients</h5>
-          <ul style={{ height: "275px", display: "flex", flexWrap: "wrap" }}>
+        <div className="ingredients m-0 text-center">
+          <h5 className="">Ingredients</h5>
+          <ul
+            style={{
+              height: "475px",
+              width: "275px",
+              display: "flex",
+              flexWrap: "wrap",
+              flexDirection: "column",
+            }}
+          >
             {ingredients.map((ingredient, index) => (
-              <li className="d-flex flex-column mx-4" key={index}>
+              <li
+                style={{ maxWidth: "10rem" }}
+                className="d-flex flex-column mx-4 justify-content-center align-item-center"
+                key={index}
+              >
                 <img
+                  className="mx-auto"
                   height="75px"
                   width="75px"
                   src={`https://www.themealdb.com/images/ingredients/${ingredient.ingredient}.png`}

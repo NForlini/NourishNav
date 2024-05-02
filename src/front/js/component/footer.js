@@ -50,7 +50,13 @@ export const Footer = () => {
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
           <div className="container-fluid">
             <Link className="navbar-brand" to={store.user ? "/profile" : "/"}>
-              NourishNav
+              <img
+                src="../../ISOTIPO.png"
+                alt="Logo"
+                width="40px"
+                height="40px"
+                className="d-inline-block align-text-top"
+              />
             </Link>
             <button
               className="navbar-toggler"

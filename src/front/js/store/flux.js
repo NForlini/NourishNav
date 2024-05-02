@@ -182,6 +182,31 @@ const getState = ({ getStore, getActions, setStore }) => {
             console.log(error);
           });
       },
+
+      changePassword: async (token, password) => {
+        console.log(token, password);
+        const opts = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+          body: JSON.stringify({
+            password: password,
+          }),
+        };
+        const res = await fetch(
+          process.env.BACKEND_URL + "/api/recoverPassword",
+          opts
+        );
+        if (res.status < 200 || res.status >= 300) {
+          throw new Error("There was an error changing password");
+        }
+        const data = await res.json();
+
+        console.log("USER INFO HERE", data);
+        return true;
+      },
     },
   };
 };

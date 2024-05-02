@@ -9,6 +9,8 @@ import { Single } from "./pages/single";
 
 import Account from "./pages/private";
 import { Login } from "./pages/login";
+import ResetPassword from "./component/ResetPassword";
+import ForgotPassword from "./component/ForgotPassword";
 import Signup from "./pages/signup";
 import injectContext from "./store/appContext";
 import About from "./pages/about";
@@ -46,6 +48,8 @@ const Layout = () => {
             <Route element={<RecipeCategories />} path="/categories" />
             <Route element={<Recipes />} path="/recipes/:category" />
             <Route element={<Login />} path="/login" />
+            <Route element={<ForgotPassword />} path="/forgot-password" />
+            <Route element={<ResetPassword />} path="/recoverPassword" />
             <Route element={<Signup />} path="/signup" />
             <Route element={<Account />} path="/account" />
             <Route element={<About />} path="/about" />

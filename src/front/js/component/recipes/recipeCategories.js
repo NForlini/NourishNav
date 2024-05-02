@@ -6,6 +6,12 @@ export default function RecipeCategories() {
   const [categories, setCategories] = useState([]);
   const [showResults, setShowResults] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [showFullText, setShowFullText] = useState(true);
+  const limit = 200;
+
+  const toggleText = () => {
+    setShowFullText(!showFullText);
+  };
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -46,9 +52,9 @@ export default function RecipeCategories() {
     //       Search
     //     </button>
     //   </form>
-    <div>
+    <div className="mt-2">
       <RecipeSearch />
-      <div className="whole-wheat whole-wheat-RCat d-flex flex-wrap justify-content-center col-10 mx-auto overflow-auto">
+      <div className="whole-wheat whole-wheat-RCat d-flex flex-wrap justify-content-center col-10 mx-auto">
         {categories.map((category, index) => (
           <div
             key={index}
@@ -66,13 +72,39 @@ export default function RecipeCategories() {
                 className="card-text"
                 style={{ height: "300px", overflow: "scroll" }}
               >
-                {category.strCategoryDescription}
+                <div>
+                  <div>
+                    {showFullText ? (
+                      <div>
+                        {category.strCategoryDescription}
+                        {category.strCategoryDescription.length > limit && (
+                          <button
+                            className="btn btn-success-active"
+                            onClick={toggleText}
+                          >
+                            Read less
+                          </button>
+                        )}
+                      </div>
+                    ) : (
+                      <div>
+                        {category.strCategoryDescription.slice(0, limit)}...
+                        <button
+                          className="btn btn-success-active"
+                          onClick={toggleText}
+                        >
+                          ...
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </p>
               <Link
                 to={`/recipes/${category.strCategory}`}
-                className="btn btn-primary"
+                className="btn btn-outline-success"
               >
-                Go to category
+                Recipes
               </Link>
             </div>
           </div>

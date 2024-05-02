@@ -49,7 +49,7 @@ export default function Highlights() {
             <h5 className="card-title">{recipeItem.strMeal}</h5>
             <Link
               to={"/recipeDescription/" + recipeItem.idMeal}
-              className="btn btn-success"
+              className="btn btn-outline-success"
             >
               Learn More
             </Link>

@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../../styles/login.css";
 import "../../styles/index.css";
 
@@ -64,6 +64,14 @@ export const Login = () => {
             value={userInfo.password}
             onChange={handleChange}
           />
+
+          <Link
+            to="/forgot-password"
+            className="text-right"
+            style={{ display: "block", marginTop: "5px" }}
+          >
+            Forgot Password?
+          </Link>
         </div>
         <button
           id="login-button"

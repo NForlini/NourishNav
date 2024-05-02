@@ -32,11 +32,12 @@ export const RecipeNutrition = () => {
         <input
           className="form-control mr-sm-2"
           type="text"
+          placeholder="Nutritional Info"
           onChange={(e) => setQuery(e.target.value)}
         />
         <button
           type="button"
-          className="btn btn-outline-success my-2 my-sm-0 ml-3"
+          className="btn btn-outline-success my-2 my-sm-0 ml-3 me-2"
           onClick={() => handleApiCall()}
         >
           Search
